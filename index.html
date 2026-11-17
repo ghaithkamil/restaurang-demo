@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3f3f2">
+  <meta name="description" content="Pizza, grill och husets favoriter. Ring och beställ takeaway eller besök oss.">
+  <title>Restaurangnamn – Pizza & grill</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23d7ad35'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='34' fill='%23292b28'%3ER%3C/text%3E%3C/svg%3E">
+
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Restaurangnamn – Pizza & grill">
+  <meta property="og:description" content="Nygräddad pizza, grill och husets favoriter. Ring för takeaway.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1200&h=630&q=80">
+  <meta property="og:locale" content="sv_SE">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Restaurangnamn",
+    "servesCuisine": ["Pizza", "Grill"],
+    "telephone": "+46700000000",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Exempelgatan 1",
+      "postalCode": "123 45",
+      "addressLocality": "Staden",
+      "addressCountry": "SE"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "11:00", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "12:00", "closes": "20:00" }
+    ],
+    "sameAs": ["https://www.instagram.com/"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f3f3f2;
+      --paper: #ffffff;
+      --ink: #292b28;
+      --muted: #70736d;
+      --yellow: #d7ad35;
+      --yellow-dark: #85670f;
+      --gray: #535750;
+      --line: #e4e4e2;
+      --radius: 22px;
+      --shadow: 0 12px 35px rgba(34, 39, 31, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+
+    .wrap {
+      width: min(1160px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(243, 243, 242, .95);
+      border-bottom: 1px solid rgba(41, 43, 40, .08);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font: 800 21px "Manrope", sans-serif;
+      letter-spacing: -1px;
+    }
+
+    .brand-name { color: var(--yellow-dark); }
+
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--yellow);
+      font-size: 19px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #555b51;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover { color: var(--yellow-dark); }
+
+    .nav-call, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .nav-call:hover, .button:hover {
+      background: #c49a28;
+      color: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: #fff;
+      background: #292b28;
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: -2;
+      inset: 0;
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(22, 27, 21, .89) 0%, rgba(22, 27, 21, .71) 44%, rgba(22, 27, 21, .12) 100%),
+        url("https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=2000&q=85") center 52% / cover;
+    }
+
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      inset: auto 0 0;
+      height: 100px;
+      content: "";
+      background: linear-gradient(transparent, rgba(0, 0, 0, .13));
+    }
+
+    .hero-content {
+      max-width: 650px;
+      padding: 78px 0 88px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: #f3d982;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 22px;
+      height: 2px;
+      content: "";
+      background: var(--yellow);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 650px;
+      margin-bottom: 18px;
+      font: 800 clamp(44px, 7vw, 76px)/1.02 "Manrope", sans-serif;
+      letter-spacing: -4px;
+    }
+
+    .hero p {
+      max-width: 500px;
+      margin-bottom: 30px;
+      color: rgba(255,255,255,.82);
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button-light {
+      border: 1px solid rgba(255,255,255,.42);
+      background: rgba(255,255,255,.1);
+      color: white;
+    }
+
+    .button-light:hover {
+      background: rgba(255,255,255,.2);
+      color: white;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      color: rgba(255,255,255,.77);
+      font-size: 13px;
+    }
+
+    .open-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 0 4px rgba(215, 173, 53, .2);
+    }
+
+    .open-dot.closed {
+      background: #b9bcb5;
+      box-shadow: 0 0 0 4px rgba(185, 188, 181, .2);
+    }
+
+    .quick-info {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: -36px;
+      padding: 25px 28px;
+      border: 1px solid rgba(41,43,40,.06);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 4px 20px;
+    }
+
+    .info-item + .info-item { border-left: 1px solid var(--line); }
+
+    .info-icon {
+      display: grid;
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 14px;
+      background: #eee5c9;
+      font-size: 19px;
+    }
+
+    .info-item strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 13px;
+    }
+
+    .info-item span, .info-item a {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .info-item a:hover { color: var(--yellow-dark); }
+
+    section { padding: 88px 0 0; }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 27px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 8px;
+      font: 800 clamp(30px, 4vw, 43px)/1.1 "Manrope", sans-serif;
+      letter-spacing: -1.7px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .menu-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .search {
+      flex: 1 1 220px;
+      min-height: 46px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      outline: none;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .search:focus {
+      border-color: var(--yellow);
+      box-shadow: 0 0 0 3px rgba(215,173,53,.18);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter {
+      min-height: 44px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper);
+      color: #50574d;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .filter:hover, .filter.active {
+      border-color: var(--gray);
+      background: var(--gray);
+      color: #fff;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .menu-card {
+      display: flex;
+      min-height: 154px;
+      overflow: hidden;
+      border: 1px solid rgba(41,43,40,.06);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: 0 5px 16px rgba(34,39,31,.04);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-copy {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 18px 17px;
+    }
+
+    .menu-copy h3 {
+      margin-bottom: 7px;
+      font: 700 16px "Manrope", sans-serif;
+    }
+
+    .menu-copy p {
+      margin-bottom: 15px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .price {
+      margin-top: auto;
+      color: var(--yellow-dark);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .food-image {
+      flex: 0 0 112px;
+      width: 112px;
+      min-height: 154px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .tag {
+      display: inline-block;
+      width: fit-content;
+      margin: 0 0 9px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eee5c9;
+      color: #705710;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      padding: 30px;
+      border-radius: 16px;
+      background: var(--paper);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .order-band {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 26px;
+      margin-top: 75px;
+      padding: 36px 40px;
+      border-radius: var(--radius);
+      background: var(--gray);
+      color: white;
+    }
+
+    .order-band h2 {
+      margin-bottom: 8px;
+      font: 800 27px "Manrope", sans-serif;
+      letter-spacing: -.8px;
+    }
+
+    .order-band p {
+      margin: 0;
+      color: rgba(255,255,255,.75);
+      line-height: 1.6;
+    }
+
+    .order-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .button-white {
+      background: var(--yellow);
+      color: var(--ink);
+    }
+
+    .button-white:hover {
+      background: #c49a28;
+      color: var(--ink);
+    }
+
+    .button-outline {
+      border: 1px solid rgba(255,255,255,.45);
+      background: transparent;
+      color: white;
+    }
+
+    .button-outline:hover {
+      background: rgba(255,255,255,.1);
+      color: white;
+    }
+
+    .visit-section { padding-bottom: 90px; }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .visit-card {
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .visit-card h3 {
+      margin-bottom: 16px;
+      font: 700 19px "Manrope", sans-serif;
+    }
+
+    .address {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .map-link {
+      color: var(--yellow-dark);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .map-link:hover { text-decoration: underline; }
+
+    .hours {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .hours td {
+      padding: 8px 0;
+      border-bottom: 1px solid #ececea;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hours tr:last-child td { border-bottom: 0; }
+
+    .hours td:last-child {
+      color: var(--ink);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .social {
+      color: var(--ink);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .social:hover { color: var(--yellow-dark); }
+
+    .mobile-call {
+      display: none;
+      position: fixed;
+      z-index: 30;
+      right: 16px;
+      bottom: 16px;
+      left: 16px;
+      min-height: 54px;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--ink);
+      box-shadow: 0 8px 24px rgba(75, 62, 29, .3);
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      align-content: center;
+    }
+
+    @media (max-width: 850px) {
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { gap: 16px; }
+      .nav-links a:nth-child(3) { display: none; }
+      .order-band {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    /* ---------- Mobil ---------- */
+    @media (max-width: 600px) {
+      html { scroll-padding-top: 76px; }
+      .wrap { width: min(100% - 32px, 480px); }
+
+      /* Toppmeny */
+      .nav { min-height: 62px; gap: 12px; }
+      .nav-links { display: none; }
+      .brand { font-size: 19px; gap: 9px; }
+      .brand-mark { width: 32px; height: 32px; font-size: 16px; }
+      .nav-call {
+        min-height: 40px;
+        padding: 0 15px;
+        font-size: 13px;
+      }
+
+      /* Hero */
+      .hero {
+        min-height: auto;
+        align-items: flex-end;
+      }
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(22,27,21,.55) 0%, rgba(22,27,21,.78) 55%, rgba(22,27,21,.92) 100%),
+          url("https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1000&q=80") 60% center / cover;
+      }
+      .hero-content { padding: 72px 0 70px; }
+      .eyebrow { font-size: 11px; letter-spacing: 1.4px; margin-bottom: 14px; }
+      h1 {
+        font-size: clamp(38px, 11vw, 48px);
+        letter-spacing: -2px;
+        margin-bottom: 14px;
+      }
+      .hero p { font-size: 16px; line-height: 1.6; margin-bottom: 24px; }
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .hero-actions .button { min-height: 50px; padding: 0 12px; font-size: 15px; }
+      .hero-note { margin-top: 20px; }
+
+      /* Snabbinfo-kortet */
+      .quick-info {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: -28px;
+        padding: 6px 18px;
+        border-radius: 20px;
+      }
+      .info-item { padding: 14px 2px; }
+      .info-item + .info-item {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+      .info-icon { flex-basis: 40px; width: 40px; height: 40px; border-radius: 12px; }
+
+      /* Sektioner */
+      section { padding-top: 60px; }
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      .section-heading h2 { font-size: 32px; letter-spacing: -1.2px; }
+      .section-heading p { font-size: 15px; }
+
+      /* Sök + filter: filtren scrollar i sidled och fastnar under menyn */
+      .menu-tools {
+        position: sticky;
+        top: 62px;
+        z-index: 10;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0 -16px 18px;
+        padding: 10px 16px;
+        background: rgba(243, 243, 242, .96);
+        backdrop-filter: blur(14px);
+      }
+      .search { flex: 0 0 auto; min-height: 48px; font-size: 16px; }
+      .filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin: 0 -16px;
+        padding: 0 16px 2px;
+        scroll-snap-type: x proximity;
+        scroll-padding-inline: 16px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .filters::-webkit-scrollbar { display: none; }
+      .menu-tools > * { min-width: 0; }
+      .menu-tools { flex-wrap: nowrap; }
+      .filter {
+        flex: 0 0 auto;
+        min-height: 40px;
+        scroll-snap-align: start;
+        white-space: nowrap;
+      }
+
+      /* Menykort */
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .menu-card { min-height: 0; border-radius: 16px; }
+      .menu-copy { padding: 15px 14px 15px 16px; }
+      .menu-copy h3 { font-size: 16px; margin-bottom: 5px; }
+      .menu-copy p { font-size: 13.5px; margin-bottom: 10px; }
+      .food-image {
+        flex: 0 0 104px;
+        width: 104px;
+        min-height: 0;
+        margin: 10px 10px 10px 0;
+        border-radius: 12px;
+      }
+
+      /* Beställ-rutan */
+      .order-band {
+        margin-top: 48px;
+        padding: 28px 22px;
+        gap: 20px;
+      }
+      .order-band h2 { font-size: 24px; }
+      .order-band p br { display: none; }
+      .order-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+      }
+      .order-actions .button:first-child { grid-column: 1 / -1; min-height: 52px; }
+
+      /* Hitta hit */
+      .visit-grid { grid-template-columns: 1fr; gap: 14px; }
+      .visit-card { padding: 22px; }
+      .visit-section { padding-bottom: 60px; }
+      .hours td { padding: 10px 0; font-size: 15px; }
+      .hours tr.today td { color: var(--yellow-dark); font-weight: 700; }
+
+      /* Footer */
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+      footer { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+
+      /* Fast ring-knapp: visas först när man scrollat förbi hero */
+      .mobile-call {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        transform: translateY(140%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform .25s ease, opacity .25s ease;
+      }
+      .mobile-call.visible {
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    /* Väldigt smala telefoner */
+    @media (max-width: 380px) {
+      .nav-call .call-number { display: none; }
+      .hero-actions { grid-template-columns: 1fr; }
+      h1 { font-size: 36px; }
+    }
+
+    /* Markera dagens öppettid (alla skärmar) */
+    .hours tr.today td { color: var(--yellow-dark); font-weight: 700; }
+
+    /* Ingen "hoppande" hover på pekskärmar */
+    @media (hover: none) {
+      .menu-card:hover, .nav-call:hover, .button:hover { transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Huvudmeny">
+      <a class="brand" href="#" aria-label="Startsida">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span class="brand-name">Restaurangnamn</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#meny">Meny</a>
+        <a href="#bestall">Beställ</a>
+        <a href="#hitta-hit">Hitta hit</a>
+      </div>
+
+      <a class="nav-call" href="tel:+46700000000">☎ Ring<span class="call-number">070-000 00 00</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-content">
+          <span class="eyebrow">Pizza · grill · favoriter</span>
+          <h1 id="hero-title">Smaker att<br>komma tillbaka till.</h1>
+          <p>Välkommen till oss! Nygräddad pizza, grillfavoriter och mat lagad med omtanke.</p>
+
+          <div class="hero-actions">
+            <a class="button" href="tel:+46700000000">☎ Ring och beställ</a>
+            <a class="button button-light" href="#meny">Se menyn ↓</a>
+          </div>
+
+          <div class="hero-note">
+            <span class="open-dot" id="open-dot"></span>
+            <span id="open-status">Öppet alla dagar · Ring för takeaway</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="quick-info wrap" aria-label="Kontaktinformation">
+      <div class="info-item">
+        <span class="info-icon" aria-hidden="true">☎</span>
+        <div>
+          <strong>Beställ på telefon</strong>
+          <a href="tel:+46700000000">070-000 00 00</a>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="info-icon" aria-hidden="true">⌖</span>
+        <div>
+          <strong>Besök oss</strong>
+          <span>Exempelgatan 1, Staden</span>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <span class="info-icon" aria-hidden="true">◷</span>
+        <div>
+          <strong>Öppet alla dagar</strong>
+          <span>Vardagar från 11 · Helger från 12</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="meny" class="wrap">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow" style="color:var(--yellow-dark)">Något för alla</span>
+          <h2>Vår meny</h2>
+          <p>Bläddra bland våra favoriter – ring oss gärna om du har frågor om menyn.</p>
+        </div>
+      </div>
+
+      <div class="menu-tools">
+        <input
+          class="search"
+          id="search"
+          type="search"
+          placeholder="Sök i menyn, till exempel kebab…"
+          aria-label="Sök i menyn"
+        >
+
+        <div class="filters" role="group" aria-label="Filtrera menyn">
+          <button class="filter active" data-category="Alla" aria-pressed="true">Hela menyn</button>
+          <button class="filter" data-category="Pizza" aria-pressed="false">Pizzor</button>
+          <button class="filter" data-category="Tallrik" aria-pressed="false">Tallrikar</button>
+          <button class="filter" data-category="Rulle" aria-pressed="false">Rullar</button>
+          <button class="filter" data-category="Burgare" aria-pressed="false">Burgare</button>
+          <button class="filter" data-category="Tillbehör" aria-pressed="false">Tillbehör & såser</button>
+        </div>
+      </div>
+
+      <div class="menu-grid" id="menu-grid" aria-live="polite"></div>
+
+      <div class="order-band" id="bestall">
+        <div>
+          <h2>Hungrig? Vi fixar maten.</h2>
+          <p>
+            Ring direkt för takeaway, eller beställ via Wolt och foodora.<br>
+            Det går självklart också bra att beställa på plats.
+          </p>
+        </div>
+
+        <div class="order-actions">
+          <a class="button button-white" href="tel:+46700000000">☎ Ring och beställ</a>
+          <a
+            class="button button-outline"
+            href="https://wolt.com/sv/swe"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Wolt ↗</a>
+          <a
+            class="button button-outline"
+            href="https://www.foodora.se"
+            target="_blank"
+            rel="noopener noreferrer"
+          >foodora ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="hitta-hit" class="wrap visit-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow" style="color:var(--yellow-dark)">Vi finns nära dig</span>
+          <h2>Kom förbi!</h2>
+          <p>Beställ på plats eller ring innan så gör vi din mat redo.</p>
+        </div>
+      </div>
+
+      <div class="visit-grid">
+        <article class="visit-card">
+          <h3>Hitta till oss</h3>
+          <p class="address">
+            Restaurangnamn<br>
+            Exempelgatan 1<br>
+            123 45 Staden
+          </p>
+          <a
+            class="map-link"
+            href="https://www.google.com/maps"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Visa på Google Maps ↗</a>
+          <p style="margin:22px 0 0;color:var(--muted)">
+            Telefon:
+            <a class="map-link" href="tel:+46700000000">070-000 00 00</a>
+          </p>
+        </article>
+
+        <article class="visit-card">
+          <h3>Öppettider</h3>
+          <table class="hours" id="hours">
+            <tbody>
+              <tr><td>Måndag</td><td>11:00–20:00</td></tr>
+              <tr><td>Tisdag</td><td>11:00–20:00</td></tr>
+              <tr><td>Onsdag</td><td>11:00–20:00</td></tr>
+              <tr><td>Torsdag</td><td>11:00–20:00</td></tr>
+              <tr><td>Fredag</td><td>11:00–20:00</td></tr>
+              <tr><td>Lördag</td><td>12:00–20:00</td></tr>
+              <tr><td>Söndag</td><td>12:00–20:00</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Restaurangnamn</span>
+      <a
+        class="social"
+        href="https://www.instagram.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Följ oss på Instagram ↗</a>
+    </div>
+  </footer>
+
+  <a class="mobile-call" id="mobile-call" href="tel:+46700000000">
+    ☎ Ring och beställ · 070-000 00 00
+  </a>
+
+  <script>
+    /*
+      BILDER: Byt gärna ut stockbilderna mot egna foton på er riktiga mat.
+      Lägg bilden i samma mapp som sidan och ange den på rätten, t.ex.
+        { name: "Margherita", ..., photo: "bilder/margherita.jpg" }
+      Ett eget "photo" går alltid före stockbilden.
+    */
+    const foodPhotos = {
+      pizza: "https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=500&q=80",
+      veggiePizza: "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=500&q=80",
+      burger: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80",
+      plate: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=500&q=80",
+      falafel: "https://images.unsplash.com/photo-1593001874117-c99c800e3eb8?auto=format&fit=crop&w=500&q=80",
+      wrap: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=500&q=80",
+      sauce: "https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=500&q=80"
+    };
+
+    const items = [
+      { name: "Margherita", category: "Pizza", description: "Tomatsås och ost.", price: "140 kr", image: "pizza" },
+      { name: "Tono", category: "Pizza", description: "Tomatsås, ost, tonfisk och lök.", price: "145 kr", image: "pizza" },
+      { name: "Al Fungi", category: "Pizza", description: "Tomatsås, ost och champinjoner.", price: "140 kr", image: "veggiePizza" },
+      { name: "Vegetaria", category: "Pizza", description: "Tomatsås, ost, champinjoner, lök och tomater.", price: "140 kr", image: "veggiePizza" },
+      { name: "Falafelpizza", category: "Pizza", description: "Tomatsås, ost, falafel, lök, paprika, feferoni och kebabsås.", price: "145 kr", image: "veggiePizza" },
+      { name: "Kebabpizza", category: "Pizza", description: "Tomatsås, ost, kebabnötkött, lök och kebabsås.", price: "160 kr", image: "pizza" },
+      { name: "Salami", category: "Pizza", description: "Tomatsås, ost, salami och lök.", price: "160 kr", image: "pizza" },
+      { name: "Husets Pizza", category: "Pizza", description: "Tomatsås, ost, gass, champinjoner, paprika, lök och kebabsås.", price: "165 kr", image: "pizza", popular: true },
+      { name: "Kycklingpizza", category: "Pizza", description: "Tomatsås, ost, kyckling, lök och kebabsås.", price: "165 kr", image: "pizza" },
+      { name: "Mix Pizza", category: "Pizza", description: "Tomatsås, ost, gass, kyckling, paprika, lök, champinjoner och kebabsås.", price: "175 kr", image: "pizza" },
+
+      { name: "Hamburgare", category: "Burgare", description: "Sallad, lök, tomat, gurka, ost och dressing.", price: "140 kr", image: "burger" },
+      { name: "Hamburgare Special", category: "Burgare", description: "Sallad, lök, tomat, gurka, ost, dressing och pommes.", price: "150 kr", image: "burger" },
+
+      { name: "Falafeltallrik", category: "Tallrik", description: "Falafel med valfria tillbehör.", price: "150 kr", image: "falafel" },
+      { name: "Gastallrik", category: "Tallrik", description: "Gass med valfria tillbehör.", price: "160 kr", image: "plate" },
+      { name: "Kyckling Gass", category: "Tallrik", description: "Kyckling med valfria tillbehör.", price: "155 kr", image: "plate" },
+      { name: "Husets Mix", category: "Tallrik", description: "Irakisk mat med valfria tillbehör.", price: "175 kr", image: "plate", popular: true },
+      { name: "Kebabtallrik", category: "Tallrik", description: "Kebab med valfria tillbehör.", price: "160 kr", image: "plate" },
+      { name: "Kycklingspett", category: "Tallrik", description: "Kycklingspett med valfria tillbehör.", price: "150 kr", image: "plate" },
+      { name: "Gass Arabitallrik", category: "Tallrik", description: "Gass med valfria tillbehör.", price: "155 kr", image: "plate", popular: true },
+      { name: "Kyckling Arabitallrik", category: "Tallrik", description: "Kyckling med valfria tillbehör.", price: "155 kr", image: "plate", popular: true },
+
+      { name: "Kebabrulle", category: "Rulle", description: "Kebab i rulle.", price: "145 kr", image: "wrap" },
+      { name: "Falafelrulle", category: "Rulle", description: "Falafel i rulle.", price: "140 kr", image: "wrap" },
+      { name: "Gassrulle", category: "Rulle", description: "Gass i rulle.", price: "145 kr", image: "wrap" },
+      { name: "Kyckling Gass Rulle", category: "Rulle", description: "Kyckling i rulle.", price: "145 kr", image: "wrap" },
+
+      { name: "Falafel", category: "Tillbehör", description: "4 stycken.", price: "45 kr", image: "falafel" },
+      { name: "Vitlökskräm", category: "Tillbehör", description: "Krämig vitlökssås.", price: "17 kr", image: "sauce" },
+      { name: "Ambasås", category: "Tillbehör", description: "Husets sås.", price: "17 kr", image: "sauce" },
+      { name: "Stark sås", category: "Tillbehör", description: "För dig som gillar lite hetta.", price: "17 kr", image: "sauce" },
+      { name: "Hamburgerdressing", category: "Tillbehör", description: "Krämig dressing som passar till det mesta.", price: "17 kr", image: "sauce" },
+      { name: "Kebabsås", category: "Tillbehör", description: "Klassisk kebabsås.", price: "17 kr", image: "sauce" }
+    ];
+
+    let activeCategory = "Alla";
+
+    const grid = document.getElementById("menu-grid");
+    const search = document.getElementById("search");
+
+    function renderMenu() {
+      const term = search.value.trim().toLocaleLowerCase("sv");
+
+      const visibleItems = items
+        .filter(item => {
+          const matchesCategory =
+            activeCategory === "Alla" || item.category === activeCategory;
+
+          const matchesSearch =
+            `${item.name} ${item.description}`
+              .toLocaleLowerCase("sv")
+              .includes(term);
+
+          return matchesCategory && matchesSearch;
+        })
+        .sort((a, b) => Number(Boolean(b.popular)) - Number(Boolean(a.popular)));
+
+      if (!visibleItems.length) {
+        grid.innerHTML =
+          '<div class="empty">Vi hittade inget som matchar. Prova ett annat sökord eller ring oss!</div>';
+        return;
+      }
+
+      grid.innerHTML = visibleItems.map(item => `
+        <article class="menu-card">
+          <div class="menu-copy">
+            ${item.popular ? '<span class="tag">Populär</span>' : ""}
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+            <span class="price">${item.price}</span>
+          </div>
+          <div
+            class="food-image"
+            role="img"
+            aria-label="${item.name}"
+            style="background-image:url('${item.photo || foodPhotos[item.image]}')"
+          ></div>
+        </article>
+      `).join("");
+    }
+
+    document.querySelectorAll(".filter").forEach(button => {
+      button.addEventListener("click", () => {
+        const current = document.querySelector(".filter.active");
+        current?.classList.remove("active");
+        current?.setAttribute("aria-pressed", "false");
+        button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
+        activeCategory = button.dataset.category;
+        renderMenu();
+      });
+    });
+
+    search.addEventListener("input", renderMenu);
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Öppet / stängt just nu, räknat i svensk tid
+    function updateOpenStatus() {
+      const now = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Stockholm" }));
+      const day = now.getDay(); // 0 = söndag
+      const minutes = now.getHours() * 60 + now.getMinutes();
+      const opensAt = (day === 0 || day === 6) ? 12 * 60 : 11 * 60;
+      const closesAt = 20 * 60;
+      const statusEl = document.getElementById("open-status");
+      const dotEl = document.getElementById("open-dot");
+
+      if (minutes >= opensAt && minutes < closesAt) {
+        statusEl.textContent = "Öppet nu till 20:00 · Ring för takeaway";
+        dotEl.classList.remove("closed");
+      } else if (minutes < opensAt) {
+        statusEl.textContent = `Stängt just nu · Öppnar idag kl. ${opensAt / 60}:00`;
+        dotEl.classList.add("closed");
+      } else {
+        const tomorrow = (day + 1) % 7;
+        const next = (tomorrow === 0 || tomorrow === 6) ? 12 : 11;
+        statusEl.textContent = `Stängt för idag · Öppnar imorgon kl. ${next}:00`;
+        dotEl.classList.add("closed");
+      }
+    }
+
+    // Markera dagens rad i öppettiderna
+    const swedishDay = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Stockholm" })).getDay();
+    const rowIndex = (swedishDay + 6) % 7; // måndag = 0
+    document.querySelectorAll("#hours tr")[rowIndex]?.classList.add("today");
+
+    // Visa fasta ring-knappen på mobil först efter hero
+    const mobileCall = document.getElementById("mobile-call");
+    const hero = document.querySelector(".hero");
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([entry]) => {
+        mobileCall.classList.toggle("visible", !entry.isIntersecting);
+      }).observe(hero);
+    } else {
+      mobileCall.classList.add("visible");
+    }
+
+    updateOpenStatus();
+    setInterval(updateOpenStatus, 60000);
+    renderMenu();
+  </script>
+</body>
+</html>
