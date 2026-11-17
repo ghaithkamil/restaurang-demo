@@ -150,6 +150,10 @@
       transition: transform .18s ease, background .18s ease;
     }
 
+    .icon { flex-shrink: 0; }
+    .info-icon { color: var(--yellow-dark); }
+    .mobile-call { gap: 9px; }
+
     .nav-call:hover, .button:hover {
       background: #c49a28;
       color: var(--ink);
@@ -782,9 +786,14 @@
       }
     }
 
+    /* Telefoner: bara "Ring" i toppen */
+    @media (max-width: 480px) {
+      .nav-call .call-number { display: none; }
+    }
+    .nav-call { white-space: nowrap; }
+
     /* Väldigt smala telefoner */
     @media (max-width: 380px) {
-      .nav-call .call-number { display: none; }
       .hero-actions { grid-template-columns: 1fr; }
       h1 { font-size: 36px; }
     }
@@ -820,7 +829,7 @@
         <a href="#hitta-hit">Hitta hit</a>
       </div>
 
-      <a class="nav-call" href="tel:+46700000000">☎ Ring<span class="call-number">070-000 00 00</span></a>
+      <a class="nav-call" href="tel:+46700000000"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Ring<span class="call-number">070-000 00 00</span></a>
     </nav>
   </header>
 
@@ -833,7 +842,7 @@
           <p>Välkommen till oss! Nygräddad pizza, grillfavoriter och mat lagad med omtanke.</p>
 
           <div class="hero-actions">
-            <a class="button" href="tel:+46700000000">☎ Ring och beställ</a>
+            <a class="button" href="tel:+46700000000"><svg class="icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Ring och beställ</a>
             <a class="button button-light" href="#meny">Se menyn ↓</a>
           </div>
 
@@ -847,7 +856,7 @@
 
     <div class="quick-info wrap" aria-label="Kontaktinformation">
       <div class="info-item">
-        <span class="info-icon" aria-hidden="true">☎</span>
+        <span class="info-icon" aria-hidden="true"><svg class="icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
         <div>
           <strong>Beställ på telefon</strong>
           <a href="tel:+46700000000">070-000 00 00</a>
@@ -855,7 +864,7 @@
       </div>
 
       <div class="info-item">
-        <span class="info-icon" aria-hidden="true">⌖</span>
+        <span class="info-icon" aria-hidden="true"><svg class="icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
         <div>
           <strong>Besök oss</strong>
           <span>Exempelgatan 1, Staden</span>
@@ -863,7 +872,7 @@
       </div>
 
       <div class="info-item">
-        <span class="info-icon" aria-hidden="true">◷</span>
+        <span class="info-icon" aria-hidden="true"><svg class="icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
         <div>
           <strong>Öppet alla dagar</strong>
           <span>Vardagar från 11 · Helger från 12</span>
@@ -911,7 +920,7 @@
         </div>
 
         <div class="order-actions">
-          <a class="button button-white" href="tel:+46700000000">☎ Ring och beställ</a>
+          <a class="button button-white" href="tel:+46700000000"><svg class="icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Ring och beställ</a>
           <a
             class="button button-outline"
             href="https://wolt.com/sv/swe"
@@ -988,7 +997,7 @@
   </footer>
 
   <a class="mobile-call" id="mobile-call" href="tel:+46700000000">
-    ☎ Ring och beställ · 070-000 00 00
+    <svg class="icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Ring och beställ · 070-000 00 00
   </a>
 
   <script>
